@@ -1,0 +1,7 @@
+numpy
+matplotlib
+h5py
+pytest
+jupyter
+# optional, only for the CIFAR-10 loader:
+# torchvision
