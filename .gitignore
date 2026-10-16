@@ -1,3 +1,6 @@
 .DS_Store
 *.h5
 data/
+.venv/
+__pycache__
+.pytest_cache
