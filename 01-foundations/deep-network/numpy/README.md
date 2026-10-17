@@ -59,6 +59,12 @@ jupyter notebook deep_network.ipynb
 
 ## Takeaways
 
-- **Depth vs accuracy:** all configurations reach 100% train accuracy, while test accuracy grows with depth — 72% → 74% → 76% (+2 pp per +2 layers). The gain comes from higher expressive capacity: deeper layers build more complex non-linear decision boundaries that better separate cat-specific features (fur texture, ear shape, whiskers). The 6-layer cost curve shows a visible spike around iteration ~1000 — a sign of training instability (gradient explosion). Note that the train/test gap stays large (24–28 pp) at every depth, so depth is only weakly justified here: the bottleneck is data (209 training images), not model capacity.
+- **Depth vs accuracy:** all configurations reach 100% train accuracy, and test accuracy is
+  72-76% (72% → 74% → 76% for 2, 4 and 6 layers). With only 50 test images one image
+  equals 2 pp, so these differences are within noise and I cannot claim that depth helps
+  here. The 6-layer cost curve shows a visible spike around iteration ~1000, possibly
+  training instability. The train/test gap is large at every depth (24-28 pp), which
+  suggests the limiting factor is the small training set (209 images) rather than model
+  capacity.
 
 - **Why small initialization slows down or stalls training in a deeper network:** with `init=small` (std = 0.01), signal variance shrinks exponentially through the layers — the vanishing-gradient problem. Weights barely update, the cost plateaus at 0.64, and the model stays at chance level (test 34%). He initialization (std = √(2/n_in)) preserves signal variance across layers, cost drops to 0.0013, and the model reaches 76% test. In short: initialization directly determines whether signal/gradients survive propagation through depth — for ReLU networks He-init is the correct choice.

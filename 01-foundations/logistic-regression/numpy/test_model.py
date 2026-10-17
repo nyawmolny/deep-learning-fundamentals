@@ -1,8 +1,6 @@
 import numpy as np
 import pytest
-
-from model import (LogisticRegression, initialize_with_zeros, predict,
-                   propagate, sigmoid)
+from model import LogisticRegression, initialize_with_zeros, predict, propagate, sigmoid
 
 
 def test_sigmoid_known_values():
