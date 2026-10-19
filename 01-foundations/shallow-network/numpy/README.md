@@ -61,3 +61,5 @@ Flower dataset: 400 train / 200 test points.
   * n_h=20-50 show mild **overfitting**: train rises to 96.5% / 95.5%, test falls to
     92.0% / 91.0%, gap grows to 4.5 p.p. The 92% vs 91% difference at the largest sizes is
     ~2 test points out of 200 and is within noise; the trend 4 → 20 → 50 is what matters.
+
+PyTorch version: see deep-network/pytorch, which supports any number of hidden layers.
